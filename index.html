@@ -9,6 +9,10 @@
   <meta name="author" content="Anıl Kılıç" />
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
     body {
       margin: 0;
       background: #fff;
@@ -17,7 +21,36 @@
       min-height: 100vh;
       padding: 20px;
       line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
     }
+    /* Animasyonlu dekoratif SVG'ler */
+    .decorative-svg {
+      position: fixed;
+      opacity: 0.12;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(1px 1px 1px rgba(255, 111, 145, 0.15));
+    }
+    .svg-brain {
+      top: 10vh;
+      left: 5vw;
+      width: 120px;
+      animation: floatUpDown 6s ease-in-out infinite;
+    }
+    .svg-pen {
+      bottom: 15vh;
+      right: 5vw;
+      width: 140px;
+      animation: floatUpDown 5s ease-in-out infinite alternate;
+    }
+    .svg-lightbulb {
+      top: 40vh;
+      right: 20vw;
+      width: 100px;
+      animation: floatUpDown 7s ease-in-out infinite;
+    }
+
     header {
       max-width: 960px;
       margin: 0 auto 40px;
@@ -114,31 +147,7 @@
       background: #ff73a3;
       box-shadow: 0 8px 20px rgba(255, 115, 163, 0.7);
     }
-    footer {
-      max-width: 960px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 20px 10px 40px;
-      color: #aaa;
-      font-size: 0.9rem;
-      user-select: none;
-      border-top: 1px solid #eee;
-    }
-    .footer-links {
-      margin-top: 10px;
-    }
-    .footer-links a {
-      color: #ff477e;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-    /* Sekme (tab) stili */
-    .tabs {
+    section.tabs {
       max-width: 960px;
       margin: 0 auto 60px;
     }
@@ -184,6 +193,16 @@
       margin: 0 auto;
       min-height: 300px;
       user-select: text;
+    }
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px 10px 40px;
+      color: #aaa;
+      font-size: 0.9rem;
+      user-select: none;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
@@ -277,21 +296,15 @@
 
 <footer>
   &copy; 2025 Düşün Taşın Blog - Tüm hakları saklıdır.
-  <div class="footer-links" aria-label="Site altbilgi linkleri">
-    <a href="#tab1">Gizlilik Politikası</a> |
-    <a href="#tab2">Kullanım Koşulları</a> |
-    <a href="#tab3">İletişim</a>
-  </div>
 </footer>
 
+<!-- Animasyonlu sekme scripti -->
 <script>
-  // Sekme butonları kontrolü
   const tabs = document.querySelectorAll('.tab-buttons button');
   const tabContents = document.querySelectorAll('.tab-content');
 
   tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => {
-      // Butonları güncelle
       tabs.forEach(btn => {
         btn.classList.remove('active');
         btn.setAttribute('aria-selected', 'false');
@@ -299,15 +312,31 @@
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
 
-      // İçerikleri güncelle
       tabContents.forEach(content => content.hidden = true);
       tabContents[index].hidden = false;
 
-      // Sayfa kaydırma sekmeye (isteğe bağlı)
       tabContents[index].scrollIntoView({behavior: 'smooth'});
     });
   });
 </script>
+
+<!-- Dekoratif SVG'ler -->
+<svg class="decorative-svg svg-brain" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <path fill="#FF477E" d="M32 2C20 2 10 12 10 24c0 12 8 24 22 30 12-5 16-20 16-30 0-12-10-22-16-22z" />
+  <circle cx="24" cy="24" r="3" fill="#FFF" />
+  <circle cx="40" cy="20" r="4" fill="#FFF" />
+</svg>
+
+<svg class="decorative-svg svg-pen" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <rect x="12" y="12" width="40" height="8" rx="2" fill="#FF477E"/>
+  <rect x="20" y="24" width="24" height="20" rx="3" fill="#FFB6C1"/>
+  <path d="M40 44l8 8" stroke="#FF477E" stroke-width="3" stroke-linecap="round"/>
+</svg>
+
+<svg class="decorative-svg svg-lightbulb" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <circle cx="32" cy="24" r="16" fill="#FF477E"/>
+  <rect x="26" y="40" width="12" height="12" rx="3" fill="#FFB6C1"/>
+</svg>
 
 </body>
 </html>
