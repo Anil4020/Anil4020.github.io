@@ -14,18 +14,14 @@
       background: #fff;
       font-family: 'Comic Neue', cursive, sans-serif;
       color: #444;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       min-height: 100vh;
       padding: 20px;
       line-height: 1.6;
     }
     header {
-      width: 100%;
       max-width: 960px;
+      margin: 0 auto 40px;
       text-align: center;
-      margin-bottom: 40px;
       user-select: none;
     }
     header h1 {
@@ -41,24 +37,21 @@
       font-weight: 600;
       margin-top: 0;
     }
-
-    /* Blog giriş yazısı kutusu */
     .intro-text {
       max-width: 720px;
       background: #fff0f5;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(255,111,145,0.3);
       padding: 25px 30px;
-      margin-bottom: 50px;
+      margin: 0 auto 50px;
       font-size: 1.1rem;
       color: #555;
       white-space: pre-line;
       user-select: text;
     }
-
     main {
       max-width: 960px;
-      width: 100%;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 25px;
@@ -122,10 +115,10 @@
       box-shadow: 0 8px 20px rgba(255, 115, 163, 0.7);
     }
     footer {
-      width: 100%;
       max-width: 960px;
+      margin: 0 auto;
       text-align: center;
-      padding: 20px 10px;
+      padding: 20px 10px 40px;
       color: #aaa;
       font-size: 0.9rem;
       user-select: none;
@@ -139,9 +132,58 @@
       text-decoration: none;
       margin: 0 10px;
       font-weight: 600;
+      cursor: pointer;
     }
     .footer-links a:hover {
       text-decoration: underline;
+    }
+    /* Sekme (tab) stili */
+    .tabs {
+      max-width: 960px;
+      margin: 0 auto 60px;
+    }
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 20px;
+      user-select: none;
+    }
+    .tab-buttons button {
+      background: #ff477e;
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      font-family: 'Fredoka One', cursive;
+      font-weight: 700;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+      flex: 1;
+      max-width: 180px;
+    }
+    .tab-buttons button:hover {
+      background: #ff73a3;
+    }
+    .tab-buttons button.active {
+      background: #ffb6c1;
+      color: #600029;
+      cursor: default;
+      box-shadow: 0 0 8px #ff477e;
+    }
+    .tab-content {
+      background: #fff0f5;
+      padding: 25px 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255,111,145,0.3);
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto;
+      min-height: 300px;
+      user-select: text;
     }
   </style>
 </head>
@@ -184,40 +226,88 @@
     <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Bilgisayar Karikatür İkon" />
     <h3>Yaratıcı Web Tasarımı</h3>
     <p>Modern ve eğlenceli tasarımlar yaparak ziyaretçilerini büyüle.</p>
-    <a href="yaratici-tasarim.html" class="btn" role="button">Detayları Oku</a>
+    <a href="#tab1" class="btn" role="button">Detayları Oku</a>
   </article>
 
   <article class="card" tabindex="0" role="article" aria-label="Kolay Kodlama Rehberi">
     <img src="https://cdn-icons-png.flaticon.com/512/1040/1040256.png" alt="Kodlama Karikatür İkon" />
     <h3>Kolay Kodlama Rehberi</h3>
     <p>Adım adım öğren, projelerini kolayca hayata geçir.</p>
-    <a href="kolay-kodlama.html" class="btn" role="button">Başla</a>
+    <a href="#tab2" class="btn" role="button">Başla</a>
   </article>
 
   <article class="card" tabindex="0" role="article" aria-label="SEO ve Performans">
     <img src="https://cdn-icons-png.flaticon.com/512/1051/1051326.png" alt="SEO Karikatür İkon" />
     <h3>SEO ve Performans</h3>
     <p>Web siteni arama motorlarında üst sıralara taşımanın yolları.</p>
-    <a href="seo-performans.html" class="btn" role="button">İpuçlarını Öğren</a>
+    <a href="#tab3" class="btn" role="button">İpuçlarını Öğren</a>
   </article>
 
   <article class="card" tabindex="0" role="article" aria-label="Blog Yazarlığı">
     <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Blog Yazarlığı Karikatür İkon" />
     <h3>Blog Yazarlığı</h3>
     <p>Duygularını, düşüncelerini eğlenceli ve samimi bir şekilde paylaş.</p>
-    <a href="blog-yazarligi.html" class="btn" role="button">Yazmaya Başla</a>
+    <a href="#tab4" class="btn" role="button">Yazmaya Başla</a>
   </article>
 </main>
 
+<section class="tabs" aria-label="Bilgi Sekmeleri">
+  <div class="tab-buttons" role="tablist" aria-label="Site Bilgi Sekmeleri">
+    <button role="tab" aria-selected="true" aria-controls="tab1" id="tab1-btn" class="active">Gizlilik Politikası</button>
+    <button role="tab" aria-selected="false" aria-controls="tab2" id="tab2-btn">Kullanım Koşulları</button>
+    <button role="tab" aria-selected="false" aria-controls="tab3" id="tab3-btn">İletişim</button>
+  </div>
+  <div id="tab1" class="tab-content" role="tabpanel" aria-labelledby="tab1-btn">
+    <h2>Gizlilik Politikası</h2>
+    <p>“Düşün Taşın” blogu olarak, kullanıcı bilgilerinizin gizliliğine önem veriyoruz. Sadece site deneyiminizi geliştirmek amacıyla temel bilgileri toplarız. Kişisel verileriniz üçüncü taraflarla paylaşılmaz ve güvenle saklanır.</p>
+    <p>Çerezler kullanarak site performansını artırır ve kullanıcı tercihlerini hatırlarız. Tarayıcı ayarlarınızdan çerezleri yönetebilirsiniz.</p>
+    <p>Daha fazla bilgi için bizimle iletişime geçebilirsiniz.</p>
+  </div>
+  <div id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tab2-btn" hidden>
+    <h2>Kullanım Koşulları</h2>
+    <p>“Düşün Taşın” blogundaki içerikler kişisel görüşlerdir ve bilgilendirme amaçlıdır. İçeriklerin doğruluğu için çaba sarf edilse de, herhangi bir zarar veya yanlış bilgi için sorumluluk kabul edilmez.</p>
+    <p>Siteyi kullanarak bu koşulları kabul etmiş sayılırsınız. İçeriklerin izinsiz çoğaltılması yasaktır.</p>
+  </div>
+  <div id="tab3" class="tab-content" role="tabpanel" aria-labelledby="tab3-btn" hidden>
+    <h2>İletişim</h2>
+    <p>Her türlü soru, öneri ve iş birliği için aşağıdaki e-posta adresinden ulaşabilirsiniz:</p>
+    <p><a href="mailto:iletisim@dusuntasin.com">iletisim@dusuntasin.com</a></p>
+  </div>
+</section>
+
 <footer>
   &copy; 2025 Düşün Taşın Blog - Tüm hakları saklıdır.
-  <div class="footer-links">
-    <a href="gizlilik-politikasi.html" target="_blank" rel="noopener noreferrer">Gizlilik Politikası</a> |
-    <a href="kullanim-kosullari.html" target="_blank" rel="noopener noreferrer">Kullanım Koşulları</a> |
-    <a href="iletisim.html" target="_blank" rel="noopener noreferrer">İletişim</a>
+  <div class="footer-links" aria-label="Site altbilgi linkleri">
+    <a href="#tab1">Gizlilik Politikası</a> |
+    <a href="#tab2">Kullanım Koşulları</a> |
+    <a href="#tab3">İletişim</a>
   </div>
 </footer>
 
+<script>
+  // Sekme butonları kontrolü
+  const tabs = document.querySelectorAll('.tab-buttons button');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      // Butonları güncelle
+      tabs.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      // İçerikleri güncelle
+      tabContents.forEach(content => content.hidden = true);
+      tabContents[index].hidden = false;
+
+      // Sayfa kaydırma sekmeye (isteğe bağlı)
+      tabContents[index].scrollIntoView({behavior: 'smooth'});
+    });
+  });
+</script>
+
 </body>
 </html>
-
