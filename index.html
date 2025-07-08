@@ -168,6 +168,8 @@
       font-family: Arial, sans-serif;
       font-size: 16px;
       line-height: 1.5;
+      text-align: left;
+      white-space: pre-line;
     }
     .close-btn {
       position: absolute;
@@ -205,7 +207,7 @@
     Web dünyasında düşün, taşın ve yeni şeyler keşfet! Bu blogda en güncel web sitesi yapımı ipuçları, yaratıcı tasarım fikirleri ve daha fazlası seni bekliyor.
   </p>
 
-  <button class="btn">İlk Yazıyı Oku</button>
+  <button class="btn" id="openFirstPost">İlk Yazıyı Oku</button>
 
   <button class="btn" id="openPrivacy">Gizlilik Politikası</button>
   <button class="btn" id="openTerms">Kullanım Şartları</button>
@@ -232,11 +234,41 @@
   <button id="acceptCookies">Kabul Et</button>
 </div>
 
+<!-- İlk Yazı Modal -->
+<div class="modal-bg" id="firstPostModal" tabindex="-1" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <span class="close-btn" id="closeFirstPost" role="button" aria-label="Kapat">&times;</span>
+    <h2>Bugün düşündüm de…</h2>
+    <p>
+      Belki de beynimizin içinde hep minik bir masa var.<br />
+      Üzerinde dağılmış kağıtlar, bir köşede devrilen bir kahve fincanı,<br />
+      ve köşede oturup duvara bakan bir düşünce:<br /><br />
+
+      “Ne yapıyorum ben?”<br /><br />
+
+      Zaman zaman her şey anlamlı geliyor.<br />
+      Bazen de sabah kahvaltıda çayı şekersiz içtiğim için<br />
+      kendime trip atıyorum. O nasıl bir karakter gelişimidir?<br /><br />
+
+      Ama asıl mesele şu:<br />
+      Kendini anlamaya çalışmak,<br />
+      yani Google'da "Ben kimim?" diye aratmak gibi.<br />
+      Sonuç?<br />
+      → Belki bu blogdur.<br /><br />
+
+      Bu blog, kendi içime baktığımda gördüğüm karalama defteri.<br />
+      Gereksiz ciddi değilim, ama tamamen salla başı da değilim.<br />
+      Sen de öyleysen —<br />
+      buyur içeri. Birlikte susabiliriz.
+    </p>
+  </div>
+</div>
+
 <!-- Gizlilik Politikası Modal -->
-<div class="modal-bg" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" tabindex="-1">
+<div class="modal-bg" id="privacyModal" role="dialog" aria-modal="true" tabindex="-1">
   <div class="modal-content">
     <span class="close-btn" id="closePrivacy" role="button" aria-label="Kapat">&times;</span>
-    <h2 id="privacyTitle">Gizlilik Politikası</h2>
+    <h2>Gizlilik Politikası</h2>
     <p>
       Düşün Taşın olarak kullanıcılarımızın gizliliğine büyük önem veriyoruz. Web sitemizde toplanan bilgiler, sadece hizmet kalitesini artırmak ve kullanıcı deneyimini iyileştirmek amacıyla kullanılmaktadır.
     </p>
@@ -253,10 +285,10 @@
 </div>
 
 <!-- Kullanım Şartları Modal -->
-<div class="modal-bg" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" tabindex="-1">
+<div class="modal-bg" id="termsModal" role="dialog" aria-modal="true" tabindex="-1">
   <div class="modal-content">
     <span class="close-btn" id="closeTerms" role="button" aria-label="Kapat">&times;</span>
-    <h2 id="termsTitle">Kullanım Şartları</h2>
+    <h2>Kullanım Şartları</h2>
     <p>
       Bu web sitesi ve içeriği, kullanıcıların eğitim ve bilgi amaçlı kullanımı içindir. Siteyi kullanarak, içeriklerin telif haklarına saygı göstereceğinizi ve yasalara uygun davranacağınızı kabul etmiş olursunuz.
     </p>
@@ -319,7 +351,24 @@
     if (e.key === "Escape") {
       if (privacyModal.style.display === 'flex') privacyModal.style.display = 'none';
       if (termsModal.style.display === 'flex') termsModal.style.display = 'none';
+      if (firstPostModal.style.display === 'flex') firstPostModal.style.display = 'none';
     }
+  });
+
+  // İlk Yazı modal kontrolü
+  const firstPostModal = document.getElementById('firstPostModal');
+  const openFirstPost = document.getElementById('openFirstPost');
+  const closeFirstPost = document.getElementById('closeFirstPost');
+
+  openFirstPost.addEventListener('click', () => {
+    firstPostModal.style.display = 'flex';
+    firstPostModal.focus();
+  });
+  closeFirstPost.addEventListener('click', () => {
+    firstPostModal.style.display = 'none';
+  });
+  window.addEventListener('click', (e) => {
+    if (e.target === firstPostModal) firstPostModal.style.display = 'none';
   });
 </script>
 
