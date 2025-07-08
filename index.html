@@ -4,139 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Düşün Taşın Blog</title>
-  <meta name="description" content="Düşün Taşın: Zihinsel karışıklıklar, yaratıcı yazılar ve içsel sorgulamalarla dolu bir blog.">
-  <meta name="keywords" content="blog, düşün taşın, yazı, motivasyon, zihin, yaratıcılık">
-  <meta name="author" content="Anıl Kılıç">
-
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    /* Uykusuz Dergisi'ne yakın, eğlenceli ve karikatürize bir font olarak 'Luckiest Guy' kullandım */
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fffaf0;
-      color: #333;
+      background: #111; /* Koyu arka plan */
+      color: #fff;
+      font-family: 'Luckiest Guy', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
 
     header {
-      background: linear-gradient(135deg, #e27d60, #85dcb0);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-      position: relative;
+      background: linear-gradient(45deg, #ff0080, #ff8c00);
+      width: 100%;
+      padding: 25px 0;
+      box-shadow: 0 4px 8px rgba(255, 140, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      user-select: none;
+    }
+
+    header img {
+      width: 60px;
+      height: 60px;
+      filter: drop-shadow(2px 2px 2px #ff00c8);
+      transform: rotate(-10deg);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    header img:hover {
+      transform: rotate(0deg) scale(1.1);
+      filter: drop-shadow(3px 3px 5px #ff00ff);
     }
 
     header h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px #ff00c8;
+      letter-spacing: 2px;
       margin: 0;
-      font-size: 2.8em;
-      font-weight: bold;
-    }
-
-    header p {
-      font-style: italic;
-      margin-top: 10px;
-    }
-
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 60px;
-      height: 60px;
-      background-image: url('https://img.icons8.com/doodle/96/brainstorm.png');
-      background-size: cover;
-    }
-
-    nav {
-      background-color: #f7f7f7;
-      padding: 10px 0;
-      text-align: center;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #e27d60;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
     }
 
-    h2 {
-      color: #e27d60;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #e27d60;
-      padding-bottom: 5px;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin: 20px 0;
-      font-size: 1.2em;
-    }
-
-    li a {
-      text-decoration: none;
-      color: #333;
-      transition: color 0.3s ease;
-    }
-
-    li a:hover {
-      color: #e27d60;
+    main p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #ffb347; /* Parlak turuncu ton */
+      text-shadow: 1px 1px 2px #cc7000;
+      margin-top: 0;
     }
 
     footer {
+      background: #222;
+      padding: 15px 10px;
+      color: #aaa;
+      font-size: 0.9rem;
       text-align: center;
-      font-size: 0.9em;
-      padding: 30px 0;
-      margin-top: 60px;
-      background-color: #f2f2f2;
-      color: #777;
+      user-select: none;
+    }
+
+    /* Düğme örneği (isteğe bağlı) */
+    .btn {
+      background: #ff00c8;
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px #ff00c8aa;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+      margin-top: 25px;
+    }
+
+    .btn:hover {
+      background: #ff66d9;
+      box-shadow: 0 6px 12px #ff66d9cc;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo" title="Blog logosu"></div>
-    <h1>Düşün Taşın</h1>
-    <p>Hayat karmaşık, ama yazmak biraz netleştiriyor.</p>
-  </header>
+<header>
+  <!-- Son logoyu buraya ekliyorum, svg ya da png olabilir -->
+  <img src="https://i.ibb.co/2dHwLH5/kral-logo.png" alt="Düşün Taşın Logo" />
+  <h1>Düşün Taşın</h1>
+</header>
 
-  <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="ilk-yazi.html">İlk Yazı</a>
-    <!-- İleride daha fazla sayfa eklersin -->
-  </nav>
+<main>
+  <p>
+    Web dünyasında düşün, taşın ve yeni şeyler keşfet! Bu blogda en güncel web sitesi yapımı ipuçları, yaratıcı tasarım fikirleri ve daha fazlası seni bekliyor.
+  </p>
 
-  <main>
-    <h2>📚 Blog Yazıları</h2>
-    <ul>
-      <li><a href="ilk-yazi.html">🧠 Düşün Taşın: Beynimin İçindeki Minik Çığlıklar</a></li>
-      <!-- Yeni yazılar buraya -->
-    </ul>
-  </main>
+  <button class="btn">İlk Yazıyı Oku</button>
+</main>
 
-  <footer>
-    &copy; 2025 Düşün Taşın Blog | Hazırlayan: Anıl
-  </footer>
+<footer>
+  &copy; 2025 Düşün Taşın Blog. Tüm hakları saklıdır.
+</footer>
 
 </body>
 </html>
+
