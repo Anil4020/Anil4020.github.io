@@ -1,43 +1,139 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Düşün Taşın Yaz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Düşün Taşın Blog</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
-    header { background: #333; color: white; padding: 20px; text-align: center; }
-    nav { background: #555; color: white; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 10px; text-decoration: none; }
-    main { padding: 20px; }
-    article { background: white; padding: 15px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-    article a { text-decoration: none; color: #333; }
-    article a:hover { color: darkblue; }
-    footer { background: #333; color: white; text-align: center; padding: 10px; margin-top: 20px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffaf0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #e27d60, #85dcb0);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      font-weight: bold;
+    }
+
+    header p {
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      background-image: url('https://img.icons8.com/doodle/96/brainstorm.png');
+      background-size: cover;
+    }
+
+    nav {
+      background-color: #f7f7f7;
+      padding: 10px 0;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #e27d60;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #e27d60;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #e27d60;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+
+    li a {
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    li a:hover {
+      color: #e27d60;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      padding: 30px 0;
+      margin-top: 60px;
+      background-color: #f2f2f2;
+      color: #777;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Düşün Taşın Yaz</h1>
-  <p>Her şeyden biraz. Düşün, taşın, yaz.</p>
-</header>
+  <header>
+    <div class="logo" title="Blog logosu"></div>
+    <h1>Düşün Taşın</h1>
+    <p>Hayat karmaşık, ama yazmak biraz netleştiriyor.</p>
+  </header>
 
-<nav>
-  <a href="index.html">Anasayfa</a>
-  <a href="about.html">Hakkımda</a>
-</nav>
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="ilk-yazi.html">İlk Yazı</a>
+    <!-- İleride daha fazla sayfa eklersin -->
+  </nav>
 
-<main>
-  <article>
-    <h2><a href="blog1.html">Kendine Not: Her Şey Normal</a></h2>
-    <p>Hayat biraz karışık olabilir, ama yazınca her şey daha anlamlı. Bu ilk yazımda biraz iç döküyorum...</p>
-  </article>
-</main>
+  <main>
+    <h2>📚 Blog Yazıları</h2>
+    <ul>
+      <li><a href="ilk-yazi.html">🧠 Düşün Taşın: Beynimin İçindeki Minik Çığlıklar</a></li>
+      <!-- Yeni yazılar buraya -->
+    </ul>
+  </main>
 
-<footer>
-  <p>&copy; 2025 Düşün Taşın Yaz - Tüm Hakları Saklıdır.</p>
-</footer>
+  <footer>
+    &copy; 2025 Düşün Taşın Blog | Hazırlayan: Anıl
+  </footer>
 
 </body>
 </html>
+
