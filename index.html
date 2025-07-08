@@ -1,438 +1,223 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Düşün Taşın blogunda web sitesi yapımı, tasarım ve kodlama üzerine güncel rehberler." />
-  <meta name="keywords" content="web sitesi yapımı, blog, tasarım, kodlama, SEO, eğitim" />
+  <title>Düşün Taşın - Karikatürize Blog</title>
+  <meta name="description" content="Kendi iç dünyana bakmak ve yaratıcı blog yazıları için karikatürize ve estetik blog." />
+  <meta name="keywords" content="blog, karikatür, web tasarım, kodlama, SEO, blog yazarlığı" />
   <meta name="author" content="Anıl Kılıç" />
-  <title>Düşün Taşın Blog</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet" />
-
-  <!-- Google AdSense (örnek) -->
-  <script data-ad-client="ca-pub-xxxxxxxxxxxxxxxx" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
-    /* Reset ve temel ayarlar */
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
-      background: #f7f3f2;
-      color: #3a3a3a;
-      font-family: 'Nunito', sans-serif;
+      background: #fff;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      color: #444;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      padding: 20px;
+      line-height: 1.6;
     }
-    a {
-      color: #f67280;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #c94f5d;
-    }
-
-    /* Başlık */
     header {
-      background: #fff0f5;
       width: 100%;
-      padding: 20px 0;
-      box-shadow: 0 2px 10px rgba(246, 114, 128, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
+      max-width: 960px;
+      text-align: center;
+      margin-bottom: 40px;
       user-select: none;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-    }
-    header img {
-      width: 55px;
-      height: 55px;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(246, 114, 128, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    header img:hover {
-      transform: scale(1.15) rotate(10deg);
-      box-shadow: 0 10px 20px rgba(246, 114, 128, 0.6);
     }
     header h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2.6rem;
-      color: #f67280;
-      margin: 0;
-      user-select: none;
-      text-shadow: 1px 1px 3px #fbd1d7;
+      font-family: 'Fredoka One', cursive;
+      font-size: 3.5rem;
+      color: #ff6f91;
+      text-shadow: 2px 2px 0 #ffb347;
+      margin-bottom: 10px;
     }
-
-    /* Ana içerik */
-    main {
-      flex: 1;
-      padding: 40px 20px;
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    main p {
-      font-size: 1.25rem;
-      line-height: 1.65;
-      color: #555;
+    header p {
+      font-size: 1.4rem;
+      color: #666;
+      font-weight: 600;
       margin-top: 0;
-      margin-bottom: 2rem;
-      font-weight: 500;
     }
 
-    /* Butonlar */
-    .btn {
-      background: #f67280;
-      border: none;
-      color: white;
-      padding: 14px 36px;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
+    /* Blog giriş yazısı kutusu */
+    .intro-text {
+      max-width: 720px;
+      background: #fff0f5;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(255,111,145,0.3);
+      padding: 25px 30px;
+      margin-bottom: 50px;
       font-size: 1.1rem;
-      border-radius: 30px;
-      box-shadow: 0 6px 15px rgba(246, 114, 128, 0.4);
-      cursor: pointer;
-      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      margin: 10px 10px 30px 10px;
-      display: inline-block;
-      letter-spacing: 1px;
-    }
-    .btn:hover {
-      background: #ff91a4;
-      box-shadow: 0 8px 20px rgba(255, 145, 164, 0.6);
-      transform: translateY(-3px);
-    }
-    .btn:active {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(255, 145, 164, 0.5);
+      color: #555;
+      white-space: pre-line;
+      user-select: text;
     }
 
-    /* Footer */
-    footer {
-      background: #f7f3f2;
-      padding: 18px 10px;
-      color: #999;
-      font-size: 0.9rem;
-      text-align: center;
-      user-select: none;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.6);
+    main {
+      max-width: 960px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 25px;
+      padding-bottom: 50px;
     }
-    footer a {
-      color: #f67280;
-      margin: 0 8px;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Reklam alanı */
-    .ad-container {
-      margin: 30px 0;
+    .card {
+      background: #fff0f5;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(255,111,145,0.3);
+      padding: 20px;
       display: flex;
-      justify-content: center;
-    }
-
-    /* Çerez bildirimi */
-    #cookieConsent {
-      background: rgba(246, 114, 128, 0.95);
-      color: #fff;
-      padding: 15px 25px;
-      position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: auto;
-      max-width: 400px;
-      border-radius: 50px;
-      box-shadow: 0 6px 20px rgba(246, 114, 128, 0.5);
-      text-align: center;
-      font-family: 'Nunito', sans-serif;
-      font-size: 15px;
-      z-index: 9999;
-      user-select: none;
-      display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
     }
-    #cookieConsent button {
-      background: #fff;
-      border: none;
-      color: #f67280;
-      padding: 8px 22px;
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 30px rgba(255,111,145,0.5);
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      filter: drop-shadow(2px 4px 3px rgba(255,111,145,0.3));
+      border-radius: 15px;
+    }
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.5rem;
+      color: #ff477e;
+      text-align: center;
+    }
+    .card p {
+      font-size: 1rem;
+      color: #666;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .btn {
+      margin-top: 15px;
+      padding: 10px 26px;
       font-weight: 700;
-      font-size: 14px;
-      border-radius: 30px;
+      font-family: 'Fredoka One', cursive;
+      color: #fff;
+      background: #ff477e;
+      border: none;
+      border-radius: 50px;
+      box-shadow: 0 6px 15px rgba(255, 71, 126, 0.5);
       cursor: pointer;
       transition: background 0.3s ease;
-      box-shadow: 0 2px 10px rgba(255,255,255,0.8);
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      user-select: none;
     }
-    #cookieConsent button:hover {
-      background: #ffe6e9;
+    .btn:hover {
+      background: #ff73a3;
+      box-shadow: 0 8px 20px rgba(255, 115, 163, 0.7);
     }
-
-    /* Modal Arka Plan */
-    .modal-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.3);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      overflow-y: auto;
-      padding: 20px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-
-    /* Modal İçerik */
-    .modal-content {
-      background: #fff;
-      color: #444;
-      max-width: 700px;
+    footer {
       width: 100%;
-      padding: 30px 35px;
-      border-radius: 15px;
-      box-shadow: 0 12px 35px rgba(246, 114, 128, 0.3);
-      position: relative;
-      font-family: 'Nunito', sans-serif;
-      font-size: 17px;
-      line-height: 1.6;
-      text-align: left;
-      white-space: pre-line;
-      transition: transform 0.25s ease;
-    }
-    .modal-content:hover {
-      transform: translateY(-5px);
-    }
-    .close-btn {
-      position: absolute;
-      top: 18px;
-      right: 20px;
-      font-size: 26px;
-      color: #f67280;
-      font-weight: 700;
-      cursor: pointer;
+      max-width: 960px;
+      text-align: center;
+      padding: 20px 10px;
+      color: #aaa;
+      font-size: 0.9rem;
       user-select: none;
-      transition: color 0.3s ease;
+      border-top: 1px solid #eee;
     }
-    .close-btn:hover {
-      color: #c94f5d;
+    .footer-links {
+      margin-top: 10px;
     }
-    .modal-content h2 {
-      margin-top: 0;
-      color: #f67280;
-      font-weight: 900;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      user-select: none;
+    .footer-links a {
+      color: #ff477e;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
     }
-    .modal-content a {
-      color: #c94f5d;
+    .footer-links a:hover {
       text-decoration: underline;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Düşün Taşın Logo" />
   <h1>Düşün Taşın</h1>
+  <p>Karikatürize ve neşeli blog dünyana hoş geldin!</p>
 </header>
 
+<section class="intro-text" aria-label="Blogun giriş yazısı">
+  Bugün düşündüm de…  
+  Belki de beynimizin içinde hep minik bir masa var.  
+  Üzerinde dağılmış kağıtlar, bir köşede devrilen bir kahve fincanı,  
+  ve köşede oturup duvara bakan bir düşünce:  
+  
+  “Ne yapıyorum ben?”  
+  
+  Zaman zaman her şey anlamlı geliyor.  
+  Bazen de sabah kahvaltıda çayı şekersiz içtiğim için  
+  kendime trip atıyorum. O nasıl bir karakter gelişimidir?  
+  
+  Ama asıl mesele şu:  
+  Kendini anlamaya çalışmak,  
+  yani Google'da "Ben kimim?" diye aratmak gibi.  
+  Sonuç?  
+  → Belki bu blogdur.  
+  
+  Bu blog, kendi içime baktığımda gördüğüm karalama defteri.  
+  Gereksiz ciddi değilim, ama tamamen salla başı da değilim.  
+  Sen de öyleysen —  
+  buyur içeri. Birlikte susabiliriz.  
+  
+  💾 Bunu GitHub’a kaydettim,  
+  sen de kendi yoluna devam et.
+</section>
+
 <main>
-  <p>
-    Web dünyasında düşün, taşın ve yeni şeyler keşfet! Bu blogda en güncel web sitesi yapımı ipuçları, yaratıcı tasarım fikirleri ve daha fazlası seni bekliyor.
-  </p>
+  <article class="card" tabindex="0" role="article" aria-label="Yaratıcı Web Tasarımı">
+    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Bilgisayar Karikatür İkon" />
+    <h3>Yaratıcı Web Tasarımı</h3>
+    <p>Modern ve eğlenceli tasarımlar yaparak ziyaretçilerini büyüle.</p>
+    <a href="yaratici-tasarim.html" class="btn" role="button">Detayları Oku</a>
+  </article>
 
-  <button class="btn" id="openFirstPost">İlk Yazıyı Oku</button>
-  <button class="btn" id="openPrivacy">Gizlilik Politikası</button>
-  <button class="btn" id="openTerms">Kullanım Şartları</button>
+  <article class="card" tabindex="0" role="article" aria-label="Kolay Kodlama Rehberi">
+    <img src="https://cdn-icons-png.flaticon.com/512/1040/1040256.png" alt="Kodlama Karikatür İkon" />
+    <h3>Kolay Kodlama Rehberi</h3>
+    <p>Adım adım öğren, projelerini kolayca hayata geçir.</p>
+    <a href="kolay-kodlama.html" class="btn" role="button">Başla</a>
+  </article>
 
-  <div class="ad-container">
-    <ins class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
-      data-ad-slot="1234567890"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
+  <article class="card" tabindex="0" role="article" aria-label="SEO ve Performans">
+    <img src="https://cdn-icons-png.flaticon.com/512/1051/1051326.png" alt="SEO Karikatür İkon" />
+    <h3>SEO ve Performans</h3>
+    <p>Web siteni arama motorlarında üst sıralara taşımanın yolları.</p>
+    <a href="seo-performans.html" class="btn" role="button">İpuçlarını Öğren</a>
+  </article>
+
+  <article class="card" tabindex="0" role="article" aria-label="Blog Yazarlığı">
+    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Blog Yazarlığı Karikatür İkon" />
+    <h3>Blog Yazarlığı</h3>
+    <p>Duygularını, düşüncelerini eğlenceli ve samimi bir şekilde paylaş.</p>
+    <a href="blog-yazarligi.html" class="btn" role="button">Yazmaya Başla</a>
+  </article>
 </main>
 
 <footer>
-  &copy; 2025 Düşün Taşın Blog
+  &copy; 2025 Düşün Taşın Blog - Tüm hakları saklıdır.
+  <div class="footer-links">
+    <a href="gizlilik-politikasi.html" target="_blank" rel="noopener noreferrer">Gizlilik Politikası</a> |
+    <a href="kullanim-kosullari.html" target="_blank" rel="noopener noreferrer">Kullanım Koşulları</a> |
+    <a href="iletisim.html" target="_blank" rel="noopener noreferrer">İletişim</a>
+  </div>
 </footer>
-
-<div id="cookieConsent">
-  Bu site çerez kullanmaktadır.
-  <button id="acceptCookies">Kabul Et</button>
-</div>
-
-<!-- İlk Yazı Modal -->
-<div class="modal-bg" id="firstPostModal" tabindex="-1" role="dialog" aria-modal="true">
-  <div class="modal-content">
-    <span class="close-btn" id="closeFirstPost" role="button" aria-label="Kapat">&times;</span>
-    <h2>Bugün düşündüm de…</h2>
-    <p>
-      Belki de beynimizin içinde hep minik bir masa var.<br />
-      Üzerinde dağılmış kağıtlar, bir köşede devrilen bir kahve fincanı,<br />
-      ve köşede oturup duvara bakan bir düşünce:<br /><br />
-
-      “Ne yapıyorum ben?”<br /><br />
-
-      Zaman zaman her şey anlamlı geliyor.<br />
-      Bazen de sabah kahvaltıda çayı şekersiz içtiğim için<br />
-      kendime trip atıyorum. O nasıl bir karakter gelişimidir?<br /><br />
-
-      Ama asıl mesele şu:<br />
-      Kendini anlamaya çalışmak,<br />
-      yani Google'da "Ben kimim?" diye aratmak gibi.<br />
-      Sonuç?<br />
-      → Belki bu blogdur.<br /><br />
-
-      Bu blog, kendi içime baktığımda gördüğüm karalama defteri.<br />
-      Gereksiz ciddi değilim, ama tamamen salla başı da değilim.<br />
-      Sen de öyleysen —<br />
-      buyur içeri. Birlikte susabiliriz.
-    </p>
-  </div>
-</div>
-
-<!-- Gizlilik Politikası Modal -->
-<div class="modal-bg" id="privacyModal" role="dialog" aria-modal="true" tabindex="-1">
-  <div class="modal-content">
-    <span class="close-btn" id="closePrivacy" role="button" aria-label="Kapat">&times;</span>
-    <h2>Gizlilik Politikası</h2>
-    <p>
-      Düşün Taşın olarak kullanıcılarımızın gizliliğine büyük önem veriyoruz. Web sitemizde toplanan bilgiler, sadece hizmet kalitesini artırmak ve kullanıcı deneyimini iyileştirmek amacıyla kullanılmaktadır.
-    </p>
-    <p>
-      Çerezler kullanılarak ziyaretçi tercihleri kaydedilir. Bu çerezler site performansını artırmak içindir ve kişisel bilgileri içermez.
-    </p>
-    <p>
-      Kullanıcılar istedikleri zaman çerezleri tarayıcı ayarlarından silebilir veya reddedebilirler, ancak bu durumda bazı özellikler düzgün çalışmayabilir.
-    </p>
-    <p>
-      Daha fazla bilgi için bizimle <a href="mailto:iletisim@dusuntasın.com">iletişim</a> kurabilirsiniz.
-    </p>
-  </div>
-</div>
-
-<!-- Kullanım Şartları Modal -->
-<div class="modal-bg" id="termsModal" role="dialog" aria-modal="true" tabindex="-1">
-  <div class="modal-content">
-    <span class="close-btn" id="closeTerms" role="button" aria-label="Kapat">&times;</span>
-    <h2>Kullanım Şartları</h2>
-    <p>
-      Bu web sitesi ve içeriği, kullanıcıların eğitim ve bilgi amaçlı kullanımı içindir. Siteyi kullanarak, içeriklerin telif haklarına saygı göstereceğinizi ve yasalara uygun davranacağınızı kabul etmiş olursunuz.
-    </p>
-    <p>
-      Site yönetimi, içeriklerde değişiklik yapma hakkını saklı tutar. Kullanıcılar, siteyi kötüye kullanmamalı ve zararlı içerik paylaşmamalıdır.
-    </p>
-    <p>
-      Herhangi bir yasal ihtilaf durumunda, Türkiye Cumhuriyeti yasaları uygulanacaktır.
-    </p>
-  </div>
-</div>
-
-<script>
-  // Cookie consent işlemi
-  const cookieConsent = document.getElementById('cookieConsent');
-  const acceptBtn = document.getElementById('acceptCookies');
-
-  acceptBtn.addEventListener('click', () => {
-    cookieConsent.style.display = 'none';
-    document.cookie = "cookieAccepted=true; max-age=" + 60*60*24*365 + "; path=/";
-  });
-
-  window.onload = () => {
-    if (document.cookie.indexOf("cookieAccepted=true") !== -1) {
-      cookieConsent.style.display = 'none';
-    }
-  };
-
-  // Modal açma/kapatma işlemleri
-  const privacyModal = document.getElementById('privacyModal');
-  const termsModal = document.getElementById('termsModal');
-  const openPrivacy = document.getElementById('openPrivacy');
-  const openTerms = document.getElementById('openTerms');
-  const closePrivacy = document.getElementById('closePrivacy');
-  const closeTerms = document.getElementById('closeTerms');
-
-  openPrivacy.addEventListener('click', () => {
-    privacyModal.style.display = 'flex';
-    privacyModal.focus();
-  });
-  openTerms.addEventListener('click', () => {
-    termsModal.style.display = 'flex';
-    termsModal.focus();
-  });
-  closePrivacy.addEventListener('click', () => {
-    privacyModal.style.display = 'none';
-  });
-  closeTerms.addEventListener('click', () => {
-    termsModal.style.display = 'none';
-  });
-
-  // Modal dışına tıklayınca kapatma
-  window.addEventListener('click', (e) => {
-    if (e.target === privacyModal) privacyModal.style.display = 'none';
-    if (e.target === termsModal) termsModal.style.display = 'none';
-    if (e.target === firstPostModal) firstPostModal.style.display = 'none';
-  });
-
-  // ESC ile kapatma
-  window.addEventListener('keydown', (e) => {
-    if (e.key === "Escape") {
-      if (privacyModal.style.display === 'flex') privacyModal.style.display = 'none';
-      if (termsModal.style.display === 'flex') termsModal.style.display = 'none';
-      if (firstPostModal.style.display === 'flex') firstPostModal.style.display = 'none';
-    }
-  });
-
-  // İlk Yazı modal kontrolü
-  const firstPostModal = document.getElementById('firstPostModal');
-  const openFirstPost = document.getElementById('openFirstPost');
-  const closeFirstPost = document.getElementById('closeFirstPost');
-
-  openFirstPost.addEventListener('click', () => {
-    firstPostModal.style.display = 'flex';
-    firstPostModal.focus();
-  });
-  closeFirstPost.addEventListener('click', () => {
-    firstPostModal.style.display = 'none';
-  });
-</script>
 
 </body>
 </html>
+
