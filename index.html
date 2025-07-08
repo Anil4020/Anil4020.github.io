@@ -3,59 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Düşün Taşın - Karikatürize Blog</title>
-  <meta name="description" content="Kendi iç dünyana bakmak ve yaratıcı blog yazıları için karikatürize ve estetik blog." />
-  <meta name="keywords" content="blog, karikatür, web tasarım, kodlama, SEO, blog yazarlığı" />
+  <title>Düşün Taşın | Karikatürize Blog ve Web Tasarım İpuçları</title>
+
+  <meta name="description" content="Düşün Taşın: Karikatürize ve neşeli blog dünyana hoş geldin! Web tasarımı, kolay kodlama rehberi ve SEO ipuçları." />
+  <meta name="keywords" content="düşün taşın, blog, web tasarım, kodlama, SEO, karikatür, teknoloji" />
+  <meta name="robots" content="index, follow" />
   <meta name="author" content="Anıl Kılıç" />
+
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
-    @keyframes floatUpDown {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
     body {
       margin: 0;
       background: #fff;
       font-family: 'Comic Neue', cursive, sans-serif;
       color: #444;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       min-height: 100vh;
       padding: 20px;
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
     }
-    /* Animasyonlu dekoratif SVG'ler */
-    .decorative-svg {
-      position: fixed;
-      opacity: 0.12;
-      pointer-events: none;
-      user-select: none;
-      filter: drop-shadow(1px 1px 1px rgba(255, 111, 145, 0.15));
-    }
-    .svg-brain {
-      top: 10vh;
-      left: 5vw;
-      width: 120px;
-      animation: floatUpDown 6s ease-in-out infinite;
-    }
-    .svg-pen {
-      bottom: 15vh;
-      right: 5vw;
-      width: 140px;
-      animation: floatUpDown 5s ease-in-out infinite alternate;
-    }
-    .svg-lightbulb {
-      top: 40vh;
-      right: 20vw;
-      width: 100px;
-      animation: floatUpDown 7s ease-in-out infinite;
-    }
-
     header {
+      width: 100%;
       max-width: 960px;
-      margin: 0 auto 40px;
       text-align: center;
-      user-select: none;
+      margin-bottom: 40px;
     }
     header h1 {
       font-family: 'Fredoka One', cursive;
@@ -63,34 +35,24 @@
       color: #ff6f91;
       text-shadow: 2px 2px 0 #ffb347;
       margin-bottom: 10px;
+      user-select: none;
     }
     header p {
       font-size: 1.4rem;
       color: #666;
       font-weight: 600;
       margin-top: 0;
-    }
-    .intro-text {
-      max-width: 720px;
-      background: #fff0f5;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(255,111,145,0.3);
-      padding: 25px 30px;
-      margin: 0 auto 50px;
-      font-size: 1.1rem;
-      color: #555;
-      white-space: pre-line;
-      user-select: text;
+      user-select: none;
     }
     main {
       max-width: 960px;
-      margin: 0 auto;
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
       gap: 25px;
       padding-bottom: 50px;
     }
-    .card {
+    article.card {
       background: #fff0f5;
       border-radius: 20px;
       box-shadow: 0 8px 16px rgba(255,111,145,0.3);
@@ -99,14 +61,13 @@
       flex-direction: column;
       align-items: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
       user-select: none;
     }
-    .card:hover {
+    article.card:hover {
       transform: translateY(-8px);
       box-shadow: 0 14px 30px rgba(255,111,145,0.5);
     }
-    .card img {
+    article.card img {
       width: 120px;
       height: 120px;
       object-fit: contain;
@@ -114,95 +75,36 @@
       filter: drop-shadow(2px 4px 3px rgba(255,111,145,0.3));
       border-radius: 15px;
     }
-    .card h3 {
+    article.card h3 {
       margin: 0 0 10px 0;
       font-size: 1.5rem;
       color: #ff477e;
       text-align: center;
     }
-    .card p {
+    article.card p {
       font-size: 1rem;
       color: #666;
       text-align: center;
       line-height: 1.4;
     }
-    .btn {
-      margin-top: 15px;
-      padding: 10px 26px;
-      font-weight: 700;
-      font-family: 'Fredoka One', cursive;
-      color: #fff;
-      background: #ff477e;
-      border: none;
-      border-radius: 50px;
-      box-shadow: 0 6px 15px rgba(255, 71, 126, 0.5);
-      cursor: pointer;
-      transition: background 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      user-select: none;
-    }
-    .btn:hover {
-      background: #ff73a3;
-      box-shadow: 0 8px 20px rgba(255, 115, 163, 0.7);
-    }
-    section.tabs {
-      max-width: 960px;
-      margin: 0 auto 60px;
-    }
-    .tab-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      gap: 20px;
-      user-select: none;
-    }
-    .tab-buttons button {
-      background: #ff477e;
-      border: none;
-      color: white;
-      padding: 10px 24px;
-      font-family: 'Fredoka One', cursive;
-      font-weight: 700;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      font-size: 1rem;
-      flex: 1;
-      max-width: 180px;
-    }
-    .tab-buttons button:hover {
-      background: #ff73a3;
-    }
-    .tab-buttons button.active {
-      background: #ffb6c1;
-      color: #600029;
-      cursor: default;
-      box-shadow: 0 0 8px #ff477e;
-    }
-    .tab-content {
-      background: #fff0f5;
-      padding: 25px 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(255,111,145,0.3);
-      color: #555;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 720px;
-      margin: 0 auto;
-      min-height: 300px;
-      user-select: text;
-    }
     footer {
+      width: 100%;
       max-width: 960px;
-      margin: 0 auto;
       text-align: center;
-      padding: 20px 10px 40px;
+      padding: 20px 10px;
       color: #aaa;
       font-size: 0.9rem;
       user-select: none;
       border-top: 1px solid #eee;
+    }
+
+    /* Basit animasyon: beyin ve kalem simgeleri hafif hareket eder */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .animated-icon {
+      animation: float 4s ease-in-out infinite;
     }
   </style>
 </head>
@@ -213,130 +115,35 @@
   <p>Karikatürize ve neşeli blog dünyana hoş geldin!</p>
 </header>
 
-<section class="intro-text" aria-label="Blogun giriş yazısı">
-  Bugün düşündüm de…  
-  Belki de beynimizin içinde hep minik bir masa var.  
-  Üzerinde dağılmış kağıtlar, bir köşede devrilen bir kahve fincanı,  
-  ve köşede oturup duvara bakan bir düşünce:  
-  
-  “Ne yapıyorum ben?”  
-  
-  Zaman zaman her şey anlamlı geliyor.  
-  Bazen de sabah kahvaltıda çayı şekersiz içtiğim için  
-  kendime trip atıyorum. O nasıl bir karakter gelişimidir?  
-  
-  Ama asıl mesele şu:  
-  Kendini anlamaya çalışmak,  
-  yani Google'da "Ben kimim?" diye aratmak gibi.  
-  Sonuç?  
-  → Belki bu blogdur.  
-  
-  Bu blog, kendi içime baktığımda gördüğüm karalama defteri.  
-  Gereksiz ciddi değilim, ama tamamen salla başı da değilim.  
-  Sen de öyleysen —  
-  buyur içeri. Birlikte susabiliriz.  
-  
-  💾 Bunu GitHub’a kaydettim,  
-  sen de kendi yoluna devam et.
-</section>
-
 <main>
   <article class="card" tabindex="0" role="article" aria-label="Yaratıcı Web Tasarımı">
-    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Bilgisayar Karikatür İkon" />
+    <img class="animated-icon" src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Bilgisayar Karikatür İkon" />
     <h3>Yaratıcı Web Tasarımı</h3>
     <p>Modern ve eğlenceli tasarımlar yaparak ziyaretçilerini büyüle.</p>
-    <a href="#tab1" class="btn" role="button">Detayları Oku</a>
   </article>
 
   <article class="card" tabindex="0" role="article" aria-label="Kolay Kodlama Rehberi">
-    <img src="https://cdn-icons-png.flaticon.com/512/1040/1040256.png" alt="Kodlama Karikatür İkon" />
+    <img class="animated-icon" src="https://cdn-icons-png.flaticon.com/512/1040/1040256.png" alt="Kodlama Karikatür İkon" />
     <h3>Kolay Kodlama Rehberi</h3>
     <p>Adım adım öğren, projelerini kolayca hayata geçir.</p>
-    <a href="#tab2" class="btn" role="button">Başla</a>
   </article>
 
   <article class="card" tabindex="0" role="article" aria-label="SEO ve Performans">
-    <img src="https://cdn-icons-png.flaticon.com/512/1051/1051326.png" alt="SEO Karikatür İkon" />
+    <img class="animated-icon" src="https://cdn-icons-png.flaticon.com/512/1051/1051326.png" alt="SEO Karikatür İkon" />
     <h3>SEO ve Performans</h3>
     <p>Web siteni arama motorlarında üst sıralara taşımanın yolları.</p>
-    <a href="#tab3" class="btn" role="button">İpuçlarını Öğren</a>
   </article>
 
   <article class="card" tabindex="0" role="article" aria-label="Blog Yazarlığı">
-    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Blog Yazarlığı Karikatür İkon" />
+    <img class="animated-icon" src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" alt="Blog Yazarlığı Karikatür İkon" />
     <h3>Blog Yazarlığı</h3>
     <p>Duygularını, düşüncelerini eğlenceli ve samimi bir şekilde paylaş.</p>
-    <a href="#tab4" class="btn" role="button">Yazmaya Başla</a>
   </article>
 </main>
-
-<section class="tabs" aria-label="Bilgi Sekmeleri">
-  <div class="tab-buttons" role="tablist" aria-label="Site Bilgi Sekmeleri">
-    <button role="tab" aria-selected="true" aria-controls="tab1" id="tab1-btn" class="active">Gizlilik Politikası</button>
-    <button role="tab" aria-selected="false" aria-controls="tab2" id="tab2-btn">Kullanım Koşulları</button>
-    <button role="tab" aria-selected="false" aria-controls="tab3" id="tab3-btn">İletişim</button>
-  </div>
-  <div id="tab1" class="tab-content" role="tabpanel" aria-labelledby="tab1-btn">
-    <h2>Gizlilik Politikası</h2>
-    <p>“Düşün Taşın” blogu olarak, kullanıcı bilgilerinizin gizliliğine önem veriyoruz. Sadece site deneyiminizi geliştirmek amacıyla temel bilgileri toplarız. Kişisel verileriniz üçüncü taraflarla paylaşılmaz ve güvenle saklanır.</p>
-    <p>Çerezler kullanarak site performansını artırır ve kullanıcı tercihlerini hatırlarız. Tarayıcı ayarlarınızdan çerezleri yönetebilirsiniz.</p>
-    <p>Daha fazla bilgi için bizimle iletişime geçebilirsiniz.</p>
-  </div>
-  <div id="tab2" class="tab-content" role="tabpanel" aria-labelledby="tab2-btn" hidden>
-    <h2>Kullanım Koşulları</h2>
-    <p>“Düşün Taşın” blogundaki içerikler kişisel görüşlerdir ve bilgilendirme amaçlıdır. İçeriklerin doğruluğu için çaba sarf edilse de, herhangi bir zarar veya yanlış bilgi için sorumluluk kabul edilmez.</p>
-    <p>Siteyi kullanarak bu koşulları kabul etmiş sayılırsınız. İçeriklerin izinsiz çoğaltılması yasaktır.</p>
-  </div>
-  <div id="tab3" class="tab-content" role="tabpanel" aria-labelledby="tab3-btn" hidden>
-    <h2>İletişim</h2>
-    <p>Her türlü soru, öneri ve iş birliği için aşağıdaki e-posta adresinden ulaşabilirsiniz:</p>
-    <p><a href="mailto:iletisim@dusuntasin.com">iletisim@dusuntasin.com</a></p>
-  </div>
-</section>
 
 <footer>
   &copy; 2025 Düşün Taşın Blog - Tüm hakları saklıdır.
 </footer>
-
-<!-- Animasyonlu sekme scripti -->
-<script>
-  const tabs = document.querySelectorAll('.tab-buttons button');
-  const tabContents = document.querySelectorAll('.tab-content');
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(btn => {
-        btn.classList.remove('active');
-        btn.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-
-      tabContents.forEach(content => content.hidden = true);
-      tabContents[index].hidden = false;
-
-      tabContents[index].scrollIntoView({behavior: 'smooth'});
-    });
-  });
-</script>
-
-<!-- Dekoratif SVG'ler -->
-<svg class="decorative-svg svg-brain" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <path fill="#FF477E" d="M32 2C20 2 10 12 10 24c0 12 8 24 22 30 12-5 16-20 16-30 0-12-10-22-16-22z" />
-  <circle cx="24" cy="24" r="3" fill="#FFF" />
-  <circle cx="40" cy="20" r="4" fill="#FFF" />
-</svg>
-
-<svg class="decorative-svg svg-pen" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <rect x="12" y="12" width="40" height="8" rx="2" fill="#FF477E"/>
-  <rect x="20" y="24" width="24" height="20" rx="3" fill="#FFB6C1"/>
-  <path d="M40 44l8 8" stroke="#FF477E" stroke-width="3" stroke-linecap="round"/>
-</svg>
-
-<svg class="decorative-svg svg-lightbulb" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <circle cx="32" cy="24" r="16" fill="#FF477E"/>
-  <rect x="26" y="40" width="12" height="12" rx="3" fill="#FFB6C1"/>
-</svg>
 
 </body>
 </html>
